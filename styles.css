@@ -1,0 +1,420 @@
+:root {
+  --night: #0d1f3a;
+  --blue: #1d456d;
+  --sky: #335f84;
+  --gold: #ffcd62;
+  --lotus: #ff9975;
+  --jade: #84e6d9;
+  --cream: #fff7e0;
+  --mint: #d2edd3;
+  --rose: #ff7f8d;
+  --panel: rgba(8, 21, 42, 0.76);
+  --panel-border: rgba(255, 247, 224, 0.16);
+  --shadow: rgba(2, 8, 24, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 205, 98, 0.16), transparent 24%),
+    radial-gradient(circle at 84% 10%, rgba(132, 230, 217, 0.14), transparent 23%),
+    linear-gradient(180deg, #081428 0%, var(--night) 34%, var(--blue) 64%, #6c936f 100%);
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  filter: blur(8px);
+  pointer-events: none;
+  opacity: 0.22;
+  z-index: 0;
+}
+
+body::before {
+  top: -10rem;
+  left: -8rem;
+  background: radial-gradient(circle, rgba(255, 205, 98, 0.75), transparent 68%);
+}
+
+body::after {
+  right: -9rem;
+  bottom: -10rem;
+  background: radial-gradient(circle, rgba(255, 127, 141, 0.72), transparent 68%);
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 2.5rem 1.2rem 3rem;
+}
+
+.orb {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.24;
+  filter: blur(6px);
+}
+
+.orb-left {
+  top: 8rem;
+  left: -5rem;
+  background:
+    radial-gradient(circle at center, rgba(132, 230, 217, 0.55), transparent 34%),
+    conic-gradient(from 90deg, rgba(255, 205, 98, 0.34), transparent, rgba(255, 153, 117, 0.3), transparent, rgba(132, 230, 217, 0.28));
+}
+
+.orb-right {
+  top: 3rem;
+  right: -4rem;
+  background:
+    radial-gradient(circle at center, rgba(255, 205, 98, 0.5), transparent 36%),
+    conic-gradient(from 240deg, rgba(255, 127, 141, 0.32), transparent, rgba(255, 205, 98, 0.3), transparent, rgba(132, 230, 217, 0.24));
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
+  gap: 1.2rem;
+  align-items: end;
+  margin-bottom: 1.4rem;
+}
+
+.eyebrow,
+.detail-eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: rgba(255, 247, 224, 0.72);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.subtitle {
+  max-width: 58rem;
+  margin: 0.9rem 0 0;
+  font-size: 1.03rem;
+  line-height: 1.72;
+  color: rgba(255, 247, 224, 0.9);
+}
+
+.hero-card,
+.detail-card,
+.game-panel,
+.dialogue-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 24px 70px var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero-card {
+  border-radius: 1.5rem;
+  padding: 1.12rem 1.2rem;
+}
+
+.hero-card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.78rem 0;
+  border-bottom: 1px solid rgba(255, 247, 224, 0.12);
+}
+
+.hero-card-row:last-child {
+  border-bottom: 0;
+}
+
+.hero-stat-label {
+  color: rgba(255, 247, 224, 0.7);
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(310px, 0.95fr);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.game-panel {
+  border-radius: 1.8rem;
+  padding: 1rem;
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+}
+
+.hud-pill {
+  display: flex;
+  flex: 1 1 145px;
+  min-width: 135px;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding: 0.84rem 0.92rem;
+  border-radius: 1rem;
+  background: rgba(255, 247, 224, 0.08);
+  border: 1px solid rgba(255, 247, 224, 0.1);
+}
+
+.hud-pill.accent {
+  background: linear-gradient(135deg, rgba(132, 230, 217, 0.18), rgba(255, 205, 98, 0.18));
+}
+
+.hud-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 247, 224, 0.72);
+}
+
+.hud-pill strong {
+  font-size: 1.02rem;
+}
+
+.stage-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.55rem;
+  border: 1px solid rgba(255, 247, 224, 0.12);
+  background: linear-gradient(180deg, rgba(5, 16, 35, 0.84), rgba(11, 29, 52, 0.75));
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 960 / 540;
+  touch-action: none;
+}
+
+.dialogue-card {
+  margin-top: 1rem;
+  border-radius: 1.45rem;
+  padding: 1.2rem 1.25rem;
+}
+
+.dialogue-speaker {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.dialogue-card h2 {
+  margin: 0.5rem 0 0.4rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.dialogue-card p {
+  margin: 0;
+  line-height: 1.68;
+  color: rgba(255, 247, 224, 0.88);
+}
+
+.dialogue-hint {
+  margin-top: 0.8rem;
+  color: rgba(132, 230, 217, 0.9);
+}
+
+.dialogue-actions,
+.mobile-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.dialogue-actions {
+  margin-top: 1.1rem;
+}
+
+.action-button,
+.control-button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.95rem 1.25rem;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  touch-action: manipulation;
+}
+
+.action-button {
+  color: #0c1a34;
+  background: linear-gradient(135deg, var(--gold), #f7a24f);
+  box-shadow: 0 11px 28px rgba(247, 162, 79, 0.38);
+}
+
+.action-button.secondary {
+  color: var(--cream);
+  background: rgba(255, 247, 224, 0.12);
+  box-shadow: none;
+}
+
+.control-button {
+  flex: 1 1 120px;
+  min-width: 0;
+  color: #0c1a34;
+  background: linear-gradient(135deg, #ffe59a, var(--gold));
+  box-shadow: 0 10px 22px rgba(255, 206, 97, 0.26);
+}
+
+.control-button.secondary {
+  color: var(--cream);
+  background: linear-gradient(135deg, rgba(132, 230, 217, 0.9), rgba(39, 135, 183, 0.95));
+  box-shadow: 0 10px 22px rgba(50, 143, 182, 0.28);
+}
+
+.action-button:hover,
+.control-button:hover,
+.action-button:active,
+.control-button:active {
+  transform: translateY(-2px);
+}
+
+.action-button:disabled,
+.control-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.mobile-controls {
+  margin-top: 1rem;
+}
+
+.side-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.detail-card {
+  border-radius: 1.4rem;
+  padding: 1.15rem 1.15rem 1.2rem;
+}
+
+.detail-card h3 {
+  margin: 0 0 0.4rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.82rem;
+}
+
+.detail-card p:last-child {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(255, 247, 224, 0.86);
+}
+
+.timeline-list {
+  display: grid;
+  gap: 0.72rem;
+  max-height: 34rem;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.timeline-step {
+  padding: 0.86rem 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 247, 224, 0.1);
+  background: rgba(255, 247, 224, 0.05);
+}
+
+.timeline-step.current {
+  background: linear-gradient(135deg, rgba(255, 205, 98, 0.16), rgba(255, 153, 117, 0.14));
+  border-color: rgba(255, 205, 98, 0.28);
+}
+
+.timeline-step.complete {
+  background: linear-gradient(135deg, rgba(132, 230, 217, 0.16), rgba(255, 247, 224, 0.08));
+  border-color: rgba(132, 230, 217, 0.28);
+}
+
+.timeline-step span {
+  display: inline-flex;
+  margin-bottom: 0.35rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: rgba(255, 247, 224, 0.1);
+  color: rgba(255, 247, 224, 0.72);
+}
+
+.timeline-step strong {
+  display: block;
+  margin-bottom: 0.28rem;
+}
+
+.timeline-step p {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.58;
+  color: rgba(255, 247, 224, 0.82);
+}
+
+@media (max-width: 1060px) {
+  .hero,
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    max-width: 32rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    padding: 1.55rem 0.82rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 11vw, 4rem);
+  }
+
+  .subtitle {
+    font-size: 0.98rem;
+  }
+
+  .hud-pill {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: calc(50% - 0.75rem);
+  }
+}

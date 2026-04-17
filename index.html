@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krishna Story Mode</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="orb orb-left"></div>
+      <div class="orb orb-right"></div>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Story Mode Adventure</p>
+          <h1>Krishna Story Mode</h1>
+          <p class="subtitle">
+            A real playable story-mode game built around your Krishna leela
+            sequence. The journey moves act by act through early Gokul, the
+            Vrindavan forests, Govardhan, Mathura, Dwaraka, and the final
+            pastimes with movement, combat, rescue missions, and story
+            dialogue.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-row">
+            <span class="hero-stat-label">Format</span>
+            <strong>6 playable acts</strong>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-stat-label">Story</span>
+            <strong>Built from your leela order</strong>
+          </div>
+          <div class="hero-card-row">
+            <span class="hero-stat-label">Controls</span>
+            <strong>Move, interact, attack</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="game-panel">
+          <div class="hud">
+            <div class="hud-pill">
+              <span class="hud-label">Act</span>
+              <strong id="actValue">Story Menu</strong>
+            </div>
+            <div class="hud-pill">
+              <span class="hud-label">Mission</span>
+              <strong id="missionValue">Begin the journey</strong>
+            </div>
+            <div class="hud-pill">
+              <span class="hud-label">Hearts</span>
+              <strong id="heartsValue">--</strong>
+            </div>
+            <div class="hud-pill">
+              <span class="hud-label">Blessings</span>
+              <strong id="blessingValue">0</strong>
+            </div>
+            <div class="hud-pill accent">
+              <span class="hud-label">Objective</span>
+              <strong id="objectiveValue">Start story mode</strong>
+            </div>
+          </div>
+
+          <div class="stage-frame">
+            <canvas
+              id="gameCanvas"
+              width="960"
+              height="540"
+              aria-label="Krishna story mode canvas game"
+            ></canvas>
+          </div>
+
+          <div class="dialogue-card">
+            <p class="dialogue-speaker" id="dialogueSpeaker">Story Mode</p>
+            <h2 id="dialogueTitle">A Journey Through Krishna Leela</h2>
+            <p id="dialogueText">
+              Story mode turns the leelas into a real game. Start when you are
+              ready to move through the acts.
+            </p>
+            <p class="dialogue-hint" id="dialogueHint">
+              Use Arrow keys or WASD to move. Use Space, Enter, F, or E for
+              action.
+            </p>
+
+            <div class="dialogue-actions">
+              <button class="action-button" id="primaryButton">
+                Start Story
+              </button>
+              <button
+                class="action-button secondary"
+                id="secondaryButton"
+                hidden
+              >
+                Restart Story
+              </button>
+            </div>
+          </div>
+
+          <div class="mobile-controls">
+            <button class="control-button" data-control="left">Left</button>
+            <button class="control-button" data-control="up">Up</button>
+            <button class="control-button" data-control="right">Right</button>
+            <button class="control-button" data-control="down">Down</button>
+            <button class="control-button secondary" data-control="action">
+              Action
+            </button>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="detail-card">
+            <p class="detail-eyebrow">Current Act</p>
+            <h3 id="currentActTitle">Story Menu</h3>
+            <p id="currentActSummary">
+              Six acts group the full Krishna leela sequence into a story-mode
+              adventure with real gameplay inside each act.
+            </p>
+          </section>
+
+          <section class="detail-card">
+            <p class="detail-eyebrow">Story Timeline</p>
+            <div class="timeline-list" id="timelineList"></div>
+          </section>
+
+          <section class="detail-card">
+            <p class="detail-eyebrow">Controls</p>
+            <p>
+              Move with <strong>Arrow keys</strong> or <strong>WASD</strong>.
+              Use <strong>Space</strong>, <strong>Enter</strong>,
+              <strong>F</strong>, or <strong>E</strong> to interact, attack,
+              recruit, collect, or continue story dialogue depending on the
+              current act.
+            </p>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
